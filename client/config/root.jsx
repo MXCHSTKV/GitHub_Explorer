@@ -5,11 +5,11 @@ import { Switch, Route, Redirect, StaticRouter } from 'react-router-dom'
 
 import store, { history } from '../redux'
 
-import DummyView from '../components/dummy-view'
+import Search from '../components/search'
+// import Dummy from '../components/dummy-view1'
 import NotFound from '../components/404'
 import Repos from '../components/repos'
 import Repository from '../components/repository'
-
 
 import Startup from './startup'
 
@@ -29,7 +29,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const func = (props) => {
     if (!!user && !!user.name && !!token) return <Component {...props} />
-
     return (
       <Redirect
         to={{
@@ -50,13 +49,12 @@ const RootComponent = (props) => {
       <RouterSelector history={history} location={props.location} context={props.context}>
         <Startup>
           <Switch>
-            <Route exact path="/" component={DummyView} />
+            <Route exact path="/" component={Search} />
             <Route exact path="/:userName" component={Repos} />
             <Route exact path="/:userName/:repositoryName" component={Repository} />
-            <PrivateRoute exact path="/hidden-route" component={DummyView} />
-            <OnlyAnonymousRoute exact path="/anonymous-route" component={DummyView} />
-
-            <Route component={NotFound} />
+            <PrivateRoute exact path="/hidden-route" component={Search} />
+            <OnlyAnonymousRoute exact path="/anonymous-route" component={Search} />
+            <Route exact path="/*" component={NotFound} />
           </Switch>
         </Startup>
       </RouterSelector>
