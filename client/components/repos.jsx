@@ -27,7 +27,7 @@ const Repos = () => {
     axios
       .get(`http://api.github.com/users/${userName}/repos`)
       .then((item) => setRepos(item.data))
-      .catch(() => setRepos(false))
+      .catch(() => setRepos([{}]))
     return () => {}
   }, [userName])
 
@@ -35,15 +35,11 @@ const Repos = () => {
     <div>
       <Head title="Hello" />
       <Header />
-      {repos ? <UserProfile /> : <div/> }
+      <UserProfile />
       <div>
-        {repos ? (
-          repos.map((rep) => {
+        {repos.map((rep) => {
             return <Repositories key={rep} {...rep} />
-          })
-        ) : (
-          <div className="bg-gray-300 text-center mx-auto p-2 mt-3">there is no such user</div>
-        )}
+          })}
       </div>
     </div>
   )
