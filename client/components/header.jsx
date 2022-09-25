@@ -21,7 +21,7 @@ const Header = () => {
           className={repositoryName ? buttonClass : invisible}
           to={`/${userName}/${repositoryName}`}
         >
-          {repositoryName}
+          {repositoryName ? `${repositoryName.substr(0, 15)}...` : repositoryName}
         </Link>
       </h1>
     </div>

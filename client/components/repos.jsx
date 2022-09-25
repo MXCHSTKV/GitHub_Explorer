@@ -7,7 +7,7 @@ import UserProfile from './user'
 
 const Repos = () => {
   const { userName } = useParams()
-  const [repos, setRepos] = useState([{}])
+  const [repos, setRepos] = useState([])
 
   const Repositories = (props) => {
     return (
@@ -27,7 +27,7 @@ const Repos = () => {
     axios
       .get(`http://api.github.com/users/${userName}/repos`)
       .then((item) => setRepos(item.data))
-      .catch(() => setRepos([{}]))
+      .catch(() => setRepos(false))
     return () => {}
   }, [userName])
 
@@ -35,11 +35,15 @@ const Repos = () => {
     <div>
       <Head title="Hello" />
       <Header />
-      <UserProfile />
+      {repos ? <UserProfile /> : <div />}
       <div>
-        {repos.map((rep) => {
+        {repos ? (
+          repos.map((rep) => {
             return <Repositories key={rep} {...rep} />
-          })}
+          })
+        ) : (
+          <div className="bg-gray-300 text-center mx-auto p-2 mt-3">there is no such user</div>
+        )}
       </div>
     </div>
   )
