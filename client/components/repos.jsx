@@ -7,7 +7,7 @@ import UserProfile from './user'
 
 const Repos = () => {
   const { userName } = useParams()
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState([{}])
 
   const Repositories = (props) => {
     return (
@@ -23,8 +23,8 @@ const Repos = () => {
     )
   }
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`http://api.github.com/users/${userName}/repos`)
       .then((item) => setRepos(item.data))
       .catch(() => setRepos(false))
@@ -35,7 +35,7 @@ const Repos = () => {
     <div>
       <Head title="Hello" />
       <Header />
-      {repos ? <UserProfile /> : <div/>}
+      {repos ? <UserProfile /> : <div/> }
       <div>
         {repos ? (
           repos.map((rep) => {
