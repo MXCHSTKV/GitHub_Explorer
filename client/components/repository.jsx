@@ -12,8 +12,8 @@ const Repository = () => {
   const [readMe, setReadme] = useState('')
   const [languages, setLang] = useState('')
 
-  useEffect(() => {
-    axios
+  useEffect(async () => {
+    await axios
       .get(`http://raw.githubusercontent.com/${userName}/${repositoryName}/master/README.md`)
       .then((rep) => setReadme(rep.data))
       .catch(() => setReadme(`README.md does not exist in ${repositoryName}`))
