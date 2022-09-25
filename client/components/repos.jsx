@@ -35,7 +35,7 @@ const Repos = () => {
     <div>
       <Head title="Hello" />
       <Header />
-      <UserProfile />
+      {repos ? <UserProfile /> : <div/>}
       <div>
         {repos ? (
           repos.map((rep) => {

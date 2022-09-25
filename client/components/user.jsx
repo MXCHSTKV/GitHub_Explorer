@@ -7,7 +7,9 @@ const UserProfile = () => {
   const [userData, setUserData] = useState({})
 
   useEffect(() => {
-    axios.get(`http://api.github.com/users/${userName}`).then((item) => setUserData(item.data))
+    axios.get(`http://api.github.com/users/${userName}`)
+    .then((item) => setUserData(item.data))
+    .catch((err) => console.log(err))
     return () => {}
   }, [userName])
 

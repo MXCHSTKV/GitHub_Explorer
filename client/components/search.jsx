@@ -18,11 +18,11 @@ const Search = () => {
     <div>
       <Head title="Search Page" />
       <Header />
-      <div className="bg-blue-300 w-[400px] mt-4 rounded-xl mx-auto text-center pt-6 h-40">
+      <div className="bg-gray-200 w-[400px] mt-4 rounded-sm mx-auto text-center pt-6 h-40">
         <div>
           <h1 className="font-semibold text-xl text-gray-700">INSERT USERNAME</h1>
           <input
-            className="w-[250px] text-lg border-2 hover:border-gray-500 px-2"
+            className="w-[250px] text-lg border hover:border-gray-900 px-2"
             type="text"
             value={value}
             onChange={onChange}
@@ -30,7 +30,7 @@ const Search = () => {
           />
           <div>
             <button
-              className="bg-gray-500 hover:text-green-800 border border-white px-8 py-1 mt-2 hover:bg-orange-300 text-white shadow-lg rounded-sm"
+              className="bg-gray-500 hover:text-gray-900 border border-white px-8 py-1 mt-4 hover:bg-gray-100 hover:border-gray-900 text-white shadow-lg rounded-sm"
               type="button"
               onClick={() => history.push(`/${value}`)}
             >

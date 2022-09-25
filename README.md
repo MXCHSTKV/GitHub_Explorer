@@ -1,4 +1,4 @@
-# My Pet Project GitHub
+# My Pet Project GitHub Explorer
 
 ## Quick start
 
