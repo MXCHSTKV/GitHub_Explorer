@@ -23,11 +23,11 @@ const Repos = () => {
     )
   }
 
-  useEffect(async () => {
-    await axios
+  useEffect(() => {
+    axios
       .get(`https://api.github.com/users/${userName}/repos`)
       .then((item) => setRepos(item.data))
-      .catch(() => setRepos([{}]))
+      .catch(() => setRepos(false))
     return () => {}
   }, [userName])
 
@@ -37,9 +37,13 @@ const Repos = () => {
       <Header />
       {repos ? <UserProfile /> : <div />}
       <div>
-        {repos.map((rep) => {
+        {repos ? (
+          repos.map((rep) => {
             return <Repositories key={rep} {...rep} />
-          })}
+          })
+        ) : (
+          <div className="bg-gray-200 p-2 text-center">NO SUCH USER</div>
+        )}
       </div>
     </div>
   )
