@@ -8,7 +8,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     axios
-      .get(`http://api.github.com/users/${userName}`)
+      .get(`https://api.github.com/users/${userName}`)
       .then((item) => setUserData(item.data))
       .catch((err) => console.log(err))
     return () => {}
@@ -35,7 +35,7 @@ const UserProfile = () => {
           >
             <a
               className="text-center"
-              href={`http://github.com/${userName}`}
+              href={`https://github.com/${userName}`}
               rel="noreferrer"
               target="_blank"
             >

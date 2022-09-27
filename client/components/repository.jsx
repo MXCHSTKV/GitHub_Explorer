@@ -14,7 +14,7 @@ const Repository = () => {
 
   useEffect(() => {
     axios
-      .get(`http://raw.githubusercontent.com/${userName}/${repositoryName}/master/README.md`)
+      .get(`https://raw.githubusercontent.com/${userName}/${repositoryName}/master/README.md`)
       .then((rep) => setReadme(rep.data))
       .catch(() => setReadme(`README.md does not exist in ${repositoryName}`))
     axios
@@ -32,7 +32,7 @@ const Repository = () => {
       </div>
       <button type="button" className={buttonClass}>
         <a
-          href={`http://github.com/${userName}/${repositoryName}`}
+          href={`https://github.com/${userName}/${repositoryName}`}
           rel="noreferrer"
           target="_blank"
         >

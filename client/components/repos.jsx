@@ -25,7 +25,7 @@ const Repos = () => {
 
   useEffect(async () => {
     await axios
-      .get(`http://api.github.com/users/${userName}/repos`)
+      .get(`https://api.github.com/users/${userName}/repos`)
       .then((item) => setRepos(item.data))
       .catch(() => setRepos([{}]))
     return () => {}
