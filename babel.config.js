@@ -13,10 +13,7 @@ module.exports = {
     '@babel/typescript'
   ],
 
-  plugins: (process.env.NODE_ENV === 'development'
-    ? [ 'react-refresh/babel']
-    : []
-  ).concat([
+  plugins: (process.env.NODE_ENV === 'development' ? ['react-refresh/babel'] : []).concat([
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-runtime',
     ['@babel/plugin-proposal-decorators', { legacy: true }],

@@ -9,6 +9,7 @@ const Repos = () => {
   const { userName } = useParams()
   const [repos, setRepos] = useState([])
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const Repositories = (props) => {
     return (
       <div

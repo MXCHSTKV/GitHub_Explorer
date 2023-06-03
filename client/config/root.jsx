@@ -6,7 +6,6 @@ import { Switch, Route, Redirect, StaticRouter } from 'react-router-dom'
 import store, { history } from '../redux'
 
 import Search from '../components/search'
-// import Dummy from '../components/dummy-view1'
 import NotFound from '../components/404'
 import Repos from '../components/repos'
 import Repository from '../components/repository'
